@@ -1,13 +1,21 @@
 import React from 'react';
 import { ChannelList, useChatContext } from 'stream-chat-react';
 import Cookies from 'universal-cookie';
+import { CompanyHeader } from '../CompanyHeader/CompanyHeader';
 import { Sidebar } from '../Sidebar/Sidebar';
-import { CompanyHeader } from './../CompanyHeader/CompanyHeader';
 import ChannelSearch from './ChannelSearch';
 import TeamChannelList from './TeamChannelList';
 import { TeamChannelPreview } from './TeamChannelPreview';
 
 const cookies = new Cookies();
+
+const customChannelTeamFilter = (channels) => {
+    return channels.filter((channel) => channel.type === 'team');
+}
+
+const customChannelMessagingFilter = (channels) => {
+    return channels.filter((channel) => channel.type === 'messaging');
+}
 
 const ChannelListContent = ({ isCreating, setIsCreating, setCreateType, setIsEditing, setToggleContainer }) => {
   const { client } = useChatContext();

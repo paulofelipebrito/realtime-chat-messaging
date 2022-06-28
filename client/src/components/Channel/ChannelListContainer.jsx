@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import ChannelListContent from './ChannelListContent';
 
-const ChannelListContainer = () => {
+const ChannelListContainer = ({ setCreateType, setIsCreating, setIsEditing }) => {
     const [toggleContainer, setToggleContainer] = useState(false);
 
     return (
